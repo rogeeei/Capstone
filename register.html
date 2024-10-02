@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Healthy Barrio | Register</title>
+    <link rel="icon" type="image/x-icon" href="assets/img/logo.png" />
+    <link href="css/styles.css" rel="stylesheet" />
+    <link href="css/custom.css" rel="stylesheet" />
+    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+    <script type="module" src="js/auth/register.js"></script>
+  </head>
+  <body class="register">
+    <div id="layoutAuthentication">
+      <div id="layoutAuthentication_content">
+        <main>
+          <div class="container">
+            <div class="row justify-content-center">
+              <div class="col-lg-7">
+                <!-- Register Card -->
+                <div class="card shadow-lg border-0 rounded-lg mt-5">
+                  <div class="card-header">
+                    <h3 class="text-center font-weight-light my-4">Create Account</h3>
+                  </div>
+                  <div class="card-body">
+                    <!-- Notifications -->
+                    <div class="alert alert-success d-none" role="alert"></div>
+                    <div class="alert alert-danger d-none" role="alert"></div>
+                    <!-- Registration Form -->
+                    <form id="form_register">
+                      <div class="row mb-3">
+                        <div class="col-md-6">
+                          <div class="form-floating mb-3 mb-md-0">
+                            <!-- First Name Field -->
+                            <input class="form-control" id="firstname" name="firstname" type="text" placeholder="First Name" required />
+                            <label for="firstname">First Name</label>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-floating mb-md-0">
+                            <!-- Middle Name Field -->
+                            <input class="form-control" id="middle_name" name="middle_name" type="text" placeholder="Middle Name" />
+                            <label for="middle_name">Middle Name</label>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row mb-3">
+                        <div class="col-md-6">
+                          <div class="form-floating mb-3 mb-md-0">
+                            <!-- Last Name Field -->
+                            <input class="form-control" id="lastname" name="lastname" type="text" placeholder="Last Name" required />
+                            <label for="lastname">Last Name</label>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-floating mb-md-0">
+                            <!-- Suffix Field -->
+                            <input class="form-control" id="suffix" name="suffix" type="text" placeholder="Suffix" />
+                            <label for="suffix">Suffix</label>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="form-floating mb-3">
+                        <!-- Email Field -->
+                        <input class="form-control" id="email" name="email" type="email" placeholder="Email Address" required />
+                        <label for="email">Email Address</label>
+                      </div>
+                      <div class="form-floating mb-3">
+                        <!-- Phone Number Field -->
+                        <input class="form-control" id="phone_number" name="phone_number" type="text" placeholder="Phone Number" required />
+                        <label for="phone_number">Phone Number</label>
+                      </div>
+                      <div class="form-floating mb-3">
+                        <!-- Birthdate Field -->
+                        <input class="form-control" id="birthdate" name="birthdate" type="date" placeholder="Birthdate" />
+                        <label for="birthdate">Birthdate</label>
+                      </div>
+                      <div class="form-floating mb-3">
+                        <!-- Barangay Field -->
+                        <input class="form-control" id="brgy" name="brgy" type="text" placeholder="Barangay" required />
+                        <label for="brgy">Barangay</label>
+                      </div>
+                      <div class="form-group mb-3">
+                        <!-- Role Field -->
+                        <select class="form-control" id="role" name="role" required>
+                          <option value="" disabled selected>Select Role</option>
+                          <option value="admin">Admin</option>
+                          <option value="user">User</option>
+                        </select>
+                      <div class="row mb-3">
+                        <div class="col-md-6 mt-3">
+                          <div class="form-floating mb-3 mb-md-0">
+                            <!-- Password Field -->
+                            <input class="form-control" id="password" name="password" type="password" placeholder="Password" required />
+                            <label for="password">Password</label>
+                          </div>
+                        </div>
+                        <div class="col-md-6 mt-3">
+                          <div class="form-floating mb-3 mb-md-0">
+                            <!-- Password Confirmation -->
+                            <input class="form-control" id="password_confirmation" name="password_confirmation" type="password" placeholder="Confirm Password" required />
+                            <label for="password_confirmation">Confirm Password</label>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="mt-4 mb-0">
+                        <div class="d-grid">
+                          <button class="register_btn btn-block d-flex align-items-center justify-content-center" type="submit">
+                            Send Request
+                          </button>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                  <div class="card-footer text-center py-3">
+                    <div class="small">
+                      Have an account? <a href="login.html">Go to login</a>
+                    </div>
+                  </div>
+                </div>
+                <!-- End of Register Card -->
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+  </body>
+</html>

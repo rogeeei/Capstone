@@ -1,0 +1,513 @@
+/* Index Styling */
+
+body.index{
+    background: linear-gradient(to bottom, #0FD5B1, #4BD0FA);
+    margin: 0; /* Remove default margin */
+    height: 100vh; /* Full height */
+    display: flex; /* Center items */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    text-align: center; /* Center text inside buttons */
+    flex-direction: column; /* Keep image above buttons */
+}
+
+.index_buttons {
+    margin-top: 20px;
+    display: flex; /* Use flex to align buttons side by side */
+    justify-content: center; /* Center buttons horizontally */
+}
+
+.index_btn {
+    display: inline-block;
+    margin: 10px; /* Adjust margin as needed */
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.2);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.index_btn:hover {
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.seal {
+    max-width: 100%; /* Responsive image */
+    height: auto; /* Maintain aspect ratio */
+}
+/* Register Styling */
+body.register {
+    min-height: 100vh; /* Full viewport height */
+    background: linear-gradient(45deg, #0FD5B1, #4BD0FA);
+    background-attachment: fixed; /* Ensure background stays in place during scroll */
+    background-size: cover; /* Ensure background covers the entire page */
+  }
+  
+/* Login Styling */
+
+body.login {
+    background: linear-gradient(to bottom, #0FD5B1, #4BD0FA);
+    height: 100vh;
+}
+
+.login_btn, .register_btn {
+  background: linear-gradient(to bottom, #0FD5B1, #4BD0FA);
+  border-radius: 10px;
+  width: 150px;
+  height: 40px;
+  margin: 0 auto;
+}
+
+.card.history-card, .card.services-card, .card.summary-card {
+  background: linear-gradient(to bottom, #0FD5B1, #4BD0FA);
+}
+
+/* Navigation Links */
+.sb-sidenav .nav-link {
+  display: block; 
+  padding: 10px; 
+  color: black; 
+  text-decoration: none; 
+  border-radius: 5px; 
+  overflow: hidden;
+  transition: padding 0.3s ease, background-color 0.3s ease;
+}
+
+/* Shadow on hover */
+.sb-sidenav .nav-link:hover {
+  background-color: rgba(255, 255, 255, 0.2); 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+  padding-left: 15px; 
+}
+
+/* Dashboard Styling */
+.dash_card{
+    background: linear-gradient(to bottom, #0FD5B1, #4BD0FA);
+    height: 100vh;
+}
+
+/* Timestamp */
+.timestamp {
+    font-size: 1.1rem;
+    text-align: left;
+    width: 200px;
+  }
+  
+  /* Service Table */
+  .service-table th,
+  .service-table td {
+    font-size: 0.9rem;
+  }
+  
+  /* File Card */
+  .file-card {
+    font-size: 0.9rem; 
+  }
+
+  /* Modal  */
+  .modal-content {
+    border-radius: 10px; 
+  }
+  
+  .card  {
+    max-width: 100%;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .card-body {
+    padding: 1.5rem;
+  }.service-card
+  .card-title {
+    font-size: 1.25rem;
+  }
+
+  .card-text {
+    font-size: 1rem;
+  }
+
+  .btn {
+    font-size: 0.875rem;
+    padding: 0.5rem 1rem;
+    background: linear-gradient(to bottom, #0FD5B1, #4BD0FA);
+  }
+  
+
+  .dash_btn{
+    font-size: 0.875rem;
+    padding: 0.5rem 1rem;
+    background: white;
+    border-radius: 10px;
+    text-decoration: none;
+    color: inherit;
+    width: 200px;
+    margin-left: 50px;
+
+  }
+
+  .sb-sidenav{
+    text-decoration: none;
+    color: black;
+  }
+
+  .nav-link{
+    text-decoration: none;
+    color: black;
+  }
+/* Gradient background for the Services Offered card */
+.card.services-card {
+  background: linear-gradient(180deg, #0dcaf0 0%, #20c997 100%);
+  color: black; /* Ensure text is readable */
+}
+.card.summary-card{
+  color: black; /* Ensure text is readable */
+}
+
+.card.history-card{
+  background-color: #fff;
+  color: black; /* Ensure text is readable */
+}
+.card.summary-card {
+  background-color: #fff;
+}
+
+.custom-icon-size {
+  font-size: 150px; 
+  color:#fff;
+}
+
+/* Custom Styles for Services Container */
+#servicesContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem; /* Adjust the spacing between cards */
+  justify-content: center; /* Center the cards horizontally */
+}
+
+/* Styles for Each Service Card */
+#servicesContainer .card {
+  flex: 1 1 calc(33.333% - 1rem); /* Adjust the width of each card (3 cards per row with spacing) */
+  max-width: 200px; 
+  margin-bottom: 1rem; /* Add some space below each card */
+  border-radius: 0.5rem; /* Rounded corners for the cards */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+  transition: transform 0.2s ease, box-shadow 0.2s ease; /* Smooth transition for hover effects */
+}
+
+/* Hover Effect for Service Cards */
+#servicesContainer .card:hover {
+  transform: translateY(-5px); /* Lift the card up slightly on hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Increase shadow on hover */
+}
+
+/* Styles for Card Title */
+#servicesContainer .card .card-title {
+  font-size: 1.25rem; /* Adjust the font size of the title */
+  margin-bottom: 0.5rem; /* Space below the title */
+}
+
+/* Styles for Card Text */
+#servicesContainer .card .card-text {
+  font-size: 1rem; /* Adjust the font size of the description */
+  margin-bottom: 1rem; /* Space below the description */
+}
+
+/* Container for buttons inside each service card */
+.card-buttons {
+  display: flex;
+  gap: 1rem; /* Increased space between buttons */
+  justify-content: flex-end; /* Align buttons to the right */
+
+}
+
+/* General button styles */
+.card-buttons button {
+    border: none;
+    border-radius: 0.25rem; /* Rounded corners */
+    padding: 0.5rem 1rem; /* Padding inside buttons */
+    font-size: 0.875rem; /* Font size */
+    color: #fff; /* Text color */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease; /* Smooth transition for background color */
+  }
+  
+  /* Edit button styles */
+  .card-buttons .btn-edit {
+    background-color: #0dcaf0; /* Yellow background */
+    margin-left: 5rem;
+  }
+  
+  .card-buttons .btn-edit:hover {
+    background-color: #0dcaf0; /* Darker yellow on hover */
+  }
+  
+  /* Delete button styles */
+  .card-buttons .btn-delete {
+    background-color: red; /* Red background */
+  }
+  
+  .card-buttons .btn-delete:hover {
+    background-color: red; /* Darker red on hover */
+  }
+  .citizen-header,
+  .services-section {
+    display: flex;
+    align-items: flex-start;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    margin-bottom: 20px;
+  }
+  .citizen-header img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 20px;
+  }
+  .citizen-details,
+  .service-availed {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  .citizen-details p,
+  .service-availed p, .detail-row {
+    background: #fff;
+    padding: 5px;
+    border-radius: 4px;
+    margin: 5px 0;
+    text-align: left;
+    width: 250px;
+  }
+  .service-availed {
+    margin-left: 20px;
+  }
+  .service-availed h5 {
+    margin: 0;
+    padding-bottom: 10px;
+  }
+  .card {
+    background-color: #fff;
+    border: 1px solid #dee2e6;
+    border-radius: 0.375rem;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  .card-header {
+    font-weight: bold;
+  }
+  .transaction-controls {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+  .filter select,
+  .date input {
+    margin-left: 10px;
+  }
+  
+  body.summary, body.admin, body.view {
+    background: linear-gradient(180deg, #20c997 0%, #e0f2f1 100%);
+    margin: 0;
+    font-family: Arial, sans-serif;
+    height: 100vh; /* This will set the height for the body */
+    display: flex;
+    flex-direction: column; /* Make the body a flex container */
+}
+
+.container-fluid {
+    padding: 0; /* Remove padding here */
+    background-color: white;
+    flex: 1; /* Allow it to grow and fill available space */
+    display: flex; /* Make it a flex container */
+    flex-direction: column; /* Stack children vertically */
+}
+
+.header-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    padding: 10px;
+    border-bottom: 2px solid #20c997;
+    position: relative;
+}
+
+.header-row a {
+    position: absolute;
+    left: 20px;
+}
+
+.header-row h5 {
+    margin: 0;
+    font-size: 1.25rem;
+}
+
+.content {
+  background: linear-gradient(to bottom, #0FD5B1, #4BD0FA);
+    flex: 1; /* Allow the content to grow and fill available space */
+    padding: 20px; /* Padding remains to give some space around the content */
+    overflow-y: auto; /* Enables scrolling if content overflows */
+}
+.card-deck {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.card {
+  background-color: #f8f9fa; /* Faded white */
+  border: 1px solid #dee2e6;
+  border-radius: 1.375rem;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  padding: 15px;
+  text-align: center;
+  flex: 1;
+  margin: 0 10px;
+}
+
+.card-title {
+  font-size: 1.25rem;
+  margin-bottom: 10px;
+}
+
+.card-body {
+  padding: 10px;
+  border-radius: 100px;
+}
+
+.card-table {
+  background-color: #fff;
+  border: 1px solid #dee2e6;
+  border-radius: 0.375rem;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  padding: 15px;
+}
+
+.card-table .card-header {
+  font-weight: bold;
+}
+
+/* Additional styling for the table */
+.table th, .table td {
+  text-align: center;
+  vertical-align: middle;
+}         
+.card.history-card {
+    border-radius: 10px;
+}
+
+  
+/* Supplies Styling */
+.med_btn, .equip_btn, .search_btn, .citizen_btn, .filter_btn {
+  background: linear-gradient(to bottom, #0FD5B1, #4BD0FA);
+  border-radius: 10px;
+  width: 150px;
+  height: 40px;
+  margin: 0 auto;
+  margin-left: 5px;
+}
+.supply-page,html{
+    height: 100vh;
+    
+}
+
+.search_container {
+  position: absolute;
+  right: 250px;
+  width: 500px;
+}
+
+/* History Styling */
+.history_card-body{
+  border-radius: 10px;
+  width: 100%;
+}
+body.history .history_card {
+  width: 100%;
+  max-width: 1300px;
+  border-radius: 10px;
+  margin: 0 auto; /* Center the card */
+}
+
+.card.his_card{
+  background: linear-gradient(to bottom, #0FD5B1, #4BD0FA);
+}
+.table.table-bordered{
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0px;
+  border-collapse: collapse;
+}
+
+/* Admin Styling */
+.admin_card {
+    background: linear-gradient(to bottom, #0FD5B1, #4BD0FA);
+    width: 205px;
+    height: 100vh;
+}
+
+body.admin {
+  height: 100vh;
+  overflow: hidden; /* If necessary to prevent scrolling */
+}
+
+.container-fluid {
+  height: 100%; /* Adjust for your container element */
+}
+
+/* Profiling Styling */
+.profiling_content {
+  background: linear-gradient(to bottom, #0FD5B1, #4BD0FA);
+  flex: 1; /* Allow the content to grow and fill available space */
+  padding: 20px; /* Padding remains to give some space around the content */
+  overflow-y: auto; /* Enables scrolling if content overflows */
+}
+.profile_date {
+  background: linear-gradient(to bottom, #0FD5B1, #4BD0FA);
+  border-radius: 10px;
+  width: 200px;
+  height: 40px;
+  margin: 0 auto;
+  margin-right: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+.profile_date label {
+  margin: 0; /* Remove margin to prevent extra spacing */
+  padding: 0; /* Add padding for spacing within the label */
+  margin-left: 10px;
+}
+
+.profile_date input {
+  background: transparent; /* Make input background transparent to match label */
+  border: none; /* Remove input border */
+  width: 100%; /* Make input fill the remaining space */
+  height: 100%; /* Make input fill the label's height */
+  appearance: none; /* Remove default input styling */
+  margin-left: 10px;
+}
+
+
+/* Citizen Styling */
+.table.citizen-table{
+  border-radius: 10px;
+  background: linear-gradient(to bottom, #0FD5B1, #4BD0FA);
+  margin-left: 10px;
+}
+
+
+/* Demographic Styling */
+
+/* Servies Summary Styling */
+.sum-card{
+  border-radius: 10px;
+}
