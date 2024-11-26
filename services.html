@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -7,51 +8,39 @@
     <meta name="description" content="" />
     <meta name="author" content="" />
 
-    <title>Healthy Barrio | Citizen</title>
+    <title>Healthy Barrio | Services Summary</title>
 
     <link rel="icon" type="image/x-icon" href="/assets/img/logo.png" />
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
     <link href="css/styles.css" rel="stylesheet" />
     <link rel="stylesheet" href="css/custom.css">
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
-    <!-- <script type="module" src="js/system/demographic_summary.js" defer></script>
-    <script src="js/utils/scripts.js" defer></script> -->
+    <script type="module" src="js/system/service.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 </head>
+
 <body class="summary">
+
+    <div id="successNotification" class="notification"></div>
+    <div id="errorNotification" class="notification"></div>
+    
     <div class="container-fluid">
         <div class="header-row">
             <a href="dashboard.html">
                 <img src="assets/img/back.png" height="30px" width="30px" alt="Back">
             </a>
-            <h5 class="text-center mt-0">Barangay</h5>
+            <h5 class="text-center mt-0" id="barangay-name">Barangay</h5>
         </div>
-        <div class="content">
+
+        <div class="content_service">
             <h5><u>Services Summary</u></h5>
-<!-- Table for Services Summary -->
-<div class="row mt-4 ">
-    <div class="col-12">
-        <div class="card card-table sum-card">
-            <div class="card-header">
-                <h5>Services Summary</h5>
-            </div>
-            <div class="card-body">
-                <table class="table table-striped">
-                    <thead>
-                        <tr>
-                            <th>Purok</th>
-                            <th>Last Name</th>
-                            <th>First Name</th>
-                            <th>Middle Name</th>
-                            <th>Suffix</th>
-                            <th>Membership Date</th>
-                            <th>View</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <!-- Rows will be dynamically inserted here -->
-                    </tbody>
-                </table>
-            </div>
+             <!-- Service Cards will be dynamically added here -->
+            <div class="row " id="serviceCards" >
         </div>
-    </div>
-</div>
+        
+
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</body>
+
+</html>

@@ -1,365 +1,394 @@
-/* Index Styling */
-
-body.index{
-    background: linear-gradient(to bottom, #0FD5B1, #4BD0FA);
-    margin: 0; /* Remove default margin */
-    height: 100vh; /* Full height */
-    display: flex; /* Center items */
-    justify-content: center; /* Center horizontally */
-    align-items: center; /* Center vertically */
-    text-align: center; /* Center text inside buttons */
-    flex-direction: column; /* Keep image above buttons */
+/* General Styling */
+.card.history-card,
+.card.services-card,
+.card.summary-card {
+  background: linear-gradient(to bottom, #0fd5b1, #4bd0fa);
 }
 
-.index_buttons {
-    margin-top: 20px;
-    display: flex; /* Use flex to align buttons side by side */
-    justify-content: center; /* Center buttons horizontally */
+.notification {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+  padding: 15px;
+  border-radius: 5px;
+  color: #fff;
+  display: none;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
 }
 
-.index_btn {
-    display: inline-block;
-    margin: 10px; /* Adjust margin as needed */
-    padding: 10px 20px;
-    font-size: 16px;
-    color: #fff;
-    background-color: rgba(0, 0, 0, 0.2);
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+.notification.show {
+  opacity: 1;
 }
 
-.index_btn:hover {
-    background-color: rgba(0, 0, 0, 0.4);
+.notification.success {
+  background-color: #4caf50;
 }
 
-.seal {
-    max-width: 100%; /* Responsive image */
-    height: auto; /* Maintain aspect ratio */
-}
-/* Register Styling */
-body.register {
-    min-height: 100vh; /* Full viewport height */
-    background: linear-gradient(45deg, #0FD5B1, #4BD0FA);
-    background-attachment: fixed; /* Ensure background stays in place during scroll */
-    background-size: cover; /* Ensure background covers the entire page */
-  }
-  
-/* Login Styling */
-
-body.login {
-    background: linear-gradient(to bottom, #0FD5B1, #4BD0FA);
-    height: 100vh;
+.notification.error {
+  background-color: #f44336;
 }
 
-.login_btn, .register_btn {
-  background: linear-gradient(to bottom, #0FD5B1, #4BD0FA);
-  border-radius: 10px;
-  width: 150px;
-  height: 40px;
-  margin: 0 auto;
+/* Global Styles for Barangay Section */
+#barangay-container {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Center content horizontally */
 }
 
-.card.history-card, .card.services-card, .card.summary-card {
-  background: linear-gradient(to bottom, #0FD5B1, #4BD0FA);
+.bold-text {
+  font-weight: bold; /* Makes 'Brgy.' text bold */
+  margin-right: 5px; /* Adds space between 'Brgy.' and the barangay name */
 }
 
-/* Navigation Links */
-.sb-sidenav .nav-link {
-  display: block; 
-  padding: 10px; 
-  color: black; 
-  text-decoration: none; 
-  border-radius: 5px; 
-  overflow: hidden;
-  transition: padding 0.3s ease, background-color 0.3s ease;
+#barangay-name {
+  font-size: 20px; /* Default font size for the barangay name */
+  white-space: nowrap; /* Prevent the text from breaking into multiple lines */
+  overflow: hidden; /* Hide text that overflows */
+  text-overflow: ellipsis; /* Add '...' if text overflows */
 }
 
-/* Shadow on hover */
-.sb-sidenav .nav-link:hover {
-  background-color: rgba(255, 255, 255, 0.2); 
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
-  padding-left: 15px; 
+#layoutSidenav_content {
+  margin-left: 500px; /* Adjust this value based on the width of the sidebar */
+  padding: 20px; /* Add some padding for better spacing */
+  height: 100vh; /* Ensure it takes the full height */
+  overflow-y: auto; /* Allow scrolling for the main content */
+  padding-left: 200px;
+}
+/* Style the dropdown button */
+#services_availed_button {
+  border-radius: 0.375rem; /* Rounded corners */
+  padding: 10px 20px; /* Add padding for better appearance */
+  font-size: 1rem; /* Adjust font size */
+  color: #495057; /* Text color */
+  background-color: #f8f9fa; /* Light background color */
+  border: 1px solid #ccc; /* Border color */
 }
 
-/* Dashboard Styling */
-.dash_card{
-    background: linear-gradient(to bottom, #0FD5B1, #4BD0FA);
-    height: 100vh;
+#services_availed_button:hover {
+  background-color: #e9ecef; /* Slightly darker background on hover */
+  border-color: #007bff; /* Change border color on hover */
+  color: #007bff; /* Change text color on hover */
+}
+
+/* Style the dropdown menu */
+#services_availed_menu {
+  max-height: 300px; /* Set max height for the dropdown */
+  overflow-y: auto; /* Allow scrolling if the content exceeds max height */
+}
+
+#services_availed_menu .dropdown-item {
+  padding: 8px 16px; /* Padding for better spacing */
+  font-size: 1rem; /* Adjust font size */
+  cursor: pointer; /* Change cursor on hover */
+}
+
+#services_availed_menu .dropdown-item:hover {
+  background-color: #007bff; /* Background color on hover */
+  color: white; /* Text color on hover */
+}
+
+/* Style the selected services badges */
+#selected_services .badge {
+  font-size: 1rem; /* Adjust font size */
+  padding: 5px 10px; /* Padding for the badges */
+  margin-right: 5px; /* Space between badges */
+}
+
+#selected_services .badge.bg-info {
+  background-color: #17a2b8; /* Custom background color for selected services */
+  color: white; /* Text color */
+}
+
+#selected_services .badge.bg-info:hover {
+  background-color: #138496; /* Darker background on hover */
+  cursor: pointer; /* Change cursor on hover */
+}
+/* Container for displaying the selected services */
+#selected_services {
+  display: flex; /* Aligns the badges horizontally */
+  flex-wrap: wrap; /* Allows badges to wrap to the next line if space is insufficient */
+  gap: 10px; /* Adds space between the badges */
+  margin-bottom: 10px; /* Optional: adds space below the badges */
+  justify-content: flex-start; /* Align badges to the left */
+}
+
+/* Individual badge styling */
+#selected_services .badge {
+  font-size: 1rem; /* Font size for the badge */
+  padding: 5px 12px; /* Padding for better spacing */
+  margin: 0; /* Removes any default margin */
+  border-radius: 0.25rem; /* Optional: rounded corners */
+  white-space: nowrap; /* Prevents text wrapping inside the badge */
+  background-color: wheat; /* Custom background color for badges */
+  color: white; /* White text color */
+}
+
+/* Optional: Adjust the button width to match the dropdown */
+#services_availed_button {
+  width: 180px !important; /* Match button width to the menu */
+  margin-left: 3px;
+}
+
+/* Reports Styling */
+.back {
+  margin: 20px;
+}
+.defo {
+  text-align: center;
+}
+.back {
+  display: flex; /* Use flexbox for layout */
+  align-items: center; /* Vertically center the items */
+}
+
+.back h5 {
+  flex-grow: 1; /* Allow the heading to grow and take up remaining space */
+  text-align: center; /* Center the text */
+  text-emphasis: 20px;
+  font-weight: bolder;
+}
+
+.filter_btn {
+  display: block;
+  position: absolute;
+  margin-top: 0;
+}
+.fil_btn {
+  display: block;
+  position: absolute; /* Positions it absolutely within the nearest positioned ancestor */
+  top: 36px; /* Positions at the top */
+  left: 380px; /* Adjust this as needed for spacing from the right */
+  margin: 0; /* Reset margins if needed */
+  padding: 5px;
+  padding-top: 0;
+  margin-top: 0;
+}
+
+/* Sticky container */
+.sticky-container {
+  position: sticky;
+  top: 0; /* Stick to the top of the viewport */
+  z-index: 1050; /* Ensure it appears on top of other elements */
+  background-color: #f8f9fa; /* Background to keep buttons visible */
+  padding: 10px 20px; /* Spacing around the content */
+  margin-left: 150px; /* Offset for the side navigation */
+  width: calc(100% - 50px); /* Adjust for the side navigation */
+}
+.custom-container {
+  height: 100vh; /* Full viewport height */
+  overflow-y: auto; /* Allow scrolling vertically */
+}
+/* Add Buttons (hidden by default) */
+.sticky-container .d-flex.justify-content-start.mt-2 {
+  margin-left: 0; /* Increase left margin for add buttons */
+  padding-left: 0;
+  margin-right: 50px;
+  border-radius: 30px;
+}
+
+/* Adjust spacing between buttons */
+.sticky-container .btn-group button {
+  margin-right: 10px; /* Space between the buttons */
+}
+
+/* Adjust the spacing of the add buttons */
+.d-flex.justify-content-start.mt-2 {
+  margin-left: 0; /* Increased left margin to move the add buttons more to the right */
+  padding-left: 0%;
+  position: sticky;
+}
+.custom-container {
+  width: 100%; /* Makes the container span the full width of the viewport */
+  margin: 0 auto; /* Centers the container */
+  padding: 0; /* Remove padding from the container */
+  overflow-x: hidden; /* Ensures no horizontal scrolling */
+}
+
+.row {
+  margin-left: 0; /* Remove any left margin on the row */
+  margin-right: 0; /* Remove any right margin on the row */
+}
+
+.col-12 {
+  padding-left: 0px; /* Adjust padding if necessary */
+  padding-right: 15px; /* Adjust padding if necessary */
+}
+
+.sticky-container {
+  position: sticky;
+  top: 0;
+  z-index: 10; /* Ensures the sticky element stays on top */
+}
+
+/* Sticky container styles */
+.sticky-container {
+  position: sticky;
+  top: 0; /* Sticks to the top of the viewport */
+  z-index: 1050; /* Ensures it stays above other content */
+  background-color: #f8f9fa; /* Add a background color to keep it visible */
+  padding: 10px; /* Adds spacing around the container */
+}
+
+/* Adjust individual element spacing inside the sticky container */
+.citizen_btn {
+  margin-right: 10px;
+}
+
+.filter_btn {
+  margin-left: 10px;
+}
+
+.search_container {
+  flex-grow: 1; /* Allows the search container to take available space */
 }
 
 /* Timestamp */
 .timestamp {
-    font-size: 1.1rem;
-    text-align: left;
-    width: 200px;
-  }
-  
-  /* Service Table */
-  .service-table th,
-  .service-table td {
-    font-size: 0.9rem;
-  }
-  
-  /* File Card */
-  .file-card {
-    font-size: 0.9rem; 
-  }
-
-  /* Modal  */
-  .modal-content {
-    border-radius: 10px; 
-  }
-  
-  .card  {
-    max-width: 100%;
-    border-radius: 0.5rem;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-
-  .card-body {
-    padding: 1.5rem;
-  }.service-card
-  .card-title {
-    font-size: 1.25rem;
-  }
-
-  .card-text {
-    font-size: 1rem;
-  }
-
-  .btn {
-    font-size: 0.875rem;
-    padding: 0.5rem 1rem;
-    background: linear-gradient(to bottom, #0FD5B1, #4BD0FA);
-  }
-  
-
-  .dash_btn{
-    font-size: 0.875rem;
-    padding: 0.5rem 1rem;
-    background: white;
-    border-radius: 10px;
-    text-decoration: none;
-    color: inherit;
-    width: 200px;
-    margin-left: 50px;
-
-  }
-
-  .sb-sidenav{
-    text-decoration: none;
-    color: black;
-  }
-
-  .nav-link{
-    text-decoration: none;
-    color: black;
-  }
-/* Gradient background for the Services Offered card */
-.card.services-card {
-  background: linear-gradient(180deg, #0dcaf0 0%, #20c997 100%);
-  color: black; /* Ensure text is readable */
+  font-size: 1.1rem;
+  text-align: left;
+  width: 200px;
 }
-.card.summary-card{
-  color: black; /* Ensure text is readable */
+/* Modal  */
+.modal-content {
+  border-radius: 10px;
 }
-
-.card.history-card{
-  background-color: #fff;
-  color: black; /* Ensure text is readable */
+.card {
+  max-width: 100%;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
-.card.summary-card {
-  background-color: #fff;
+.card-body {
+  padding: 1.5rem;
 }
-
-.custom-icon-size {
-  font-size: 150px; 
-  color:#fff;
+.service-card .card-title {
+  font-size: 1.25rem;
 }
-
-/* Custom Styles for Services Container */
-#servicesContainer {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem; /* Adjust the spacing between cards */
-  justify-content: center; /* Center the cards horizontally */
+.card-text {
+  font-size: 1rem;
 }
-
-/* Styles for Each Service Card */
-#servicesContainer .card {
-  flex: 1 1 calc(33.333% - 1rem); /* Adjust the width of each card (3 cards per row with spacing) */
-  max-width: 200px; 
-  margin-bottom: 1rem; /* Add some space below each card */
-  border-radius: 0.5rem; /* Rounded corners for the cards */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
-  transition: transform 0.2s ease, box-shadow 0.2s ease; /* Smooth transition for hover effects */
+.btn {
+  font-size: 0.875rem;
+  padding: 0.5rem 1rem;
+  background: linear-gradient(to bottom, #0fd5b1, #4bd0fa);
 }
-
 /* Hover Effect for Service Cards */
 #servicesContainer .card:hover {
   transform: translateY(-5px); /* Lift the card up slightly on hover */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Increase shadow on hover */
 }
-
 /* Styles for Card Title */
 #servicesContainer .card .card-title {
   font-size: 1.25rem; /* Adjust the font size of the title */
   margin-bottom: 0.5rem; /* Space below the title */
 }
-
 /* Styles for Card Text */
 #servicesContainer .card .card-text {
   font-size: 1rem; /* Adjust the font size of the description */
   margin-bottom: 1rem; /* Space below the description */
 }
-
 /* Container for buttons inside each service card */
 .card-buttons {
   display: flex;
   gap: 1rem; /* Increased space between buttons */
   justify-content: flex-end; /* Align buttons to the right */
-
+}
+/* Styles for Each Service Card */
+#servicesContainer .card {
+  flex: 1 1 calc(33.333% - 1rem); /* Adjust the width of each card (3 cards per row with spacing) */
+  max-width: 200px;
+  margin-bottom: 1rem; /* Add some space below each card */
+  border-radius: 0.5rem; /* Rounded corners for the cards */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+  transition: transform 0.2s ease, box-shadow 0.2s ease; /* Smooth transition for hover effects */
+}
+.citizen-header,
+.services-section {
+  display: flex;
+  align-items: flex-start;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  margin-bottom: 20px;
+}
+.citizen-header img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 20px;
+}
+.citizen-details,
+.service-availed {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.citizen-details p,
+.service-availed p,
+.detail-row {
+  background: #fff;
+  padding: 5px;
+  border-radius: 4px;
+  margin: 5px 0;
+  text-align: left;
+  width: 250px;
+}
+.card {
+  background-color: #fff;
+  border: 1px solid #dee2e6;
+  border-radius: 0.375rem;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  padding: 20px;
+  margin-bottom: 20px;
+}
+.card-header {
+  font-weight: bold;
+}
+.filter select,
+.date input {
+  margin-left: 10px;
 }
 
-/* General button styles */
-.card-buttons button {
-    border: none;
-    border-radius: 0.25rem; /* Rounded corners */
-    padding: 0.5rem 1rem; /* Padding inside buttons */
-    font-size: 0.875rem; /* Font size */
-    color: #fff; /* Text color */
-    cursor: pointer; /* Pointer cursor on hover */
-    transition: background-color 0.3s ease; /* Smooth transition for background color */
-  }
-  
-  /* Edit button styles */
-  .card-buttons .btn-edit {
-    background-color: #0dcaf0; /* Yellow background */
-    margin-left: 5rem;
-  }
-  
-  .card-buttons .btn-edit:hover {
-    background-color: #0dcaf0; /* Darker yellow on hover */
-  }
-  
-  /* Delete button styles */
-  .card-buttons .btn-delete {
-    background-color: red; /* Red background */
-  }
-  
-  .card-buttons .btn-delete:hover {
-    background-color: red; /* Darker red on hover */
-  }
-  .citizen-header,
-  .services-section {
-    display: flex;
-    align-items: flex-start;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
-    margin-bottom: 20px;
-  }
-  .citizen-header img {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-right: 20px;
-  }
-  .citizen-details,
-  .service-availed {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-  }
-  .citizen-details p,
-  .service-availed p, .detail-row {
-    background: #fff;
-    padding: 5px;
-    border-radius: 4px;
-    margin: 5px 0;
-    text-align: left;
-    width: 250px;
-  }
-  .service-availed {
-    margin-left: 20px;
-  }
-  .service-availed h5 {
-    margin: 0;
-    padding-bottom: 10px;
-  }
-  .card {
-    background-color: #fff;
-    border: 1px solid #dee2e6;
-    border-radius: 0.375rem;
-    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
-    padding: 20px;
-    margin-bottom: 20px;
-  }
-  .card-header {
-    font-weight: bold;
-  }
-  .transaction-controls {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 10px;
-  }
-  .filter select,
-  .date input {
-    margin-left: 10px;
-  }
-  
-  body.summary, body.admin, body.view {
-    background: linear-gradient(180deg, #20c997 0%, #e0f2f1 100%);
-    margin: 0;
-    font-family: Arial, sans-serif;
-    height: 100vh; /* This will set the height for the body */
-    display: flex;
-    flex-direction: column; /* Make the body a flex container */
+body.summary,
+body.admin,
+body.view {
+  background: linear-gradient(180deg, #20c997 0%, #e0f2f1 100%);
+  margin: 0;
+  font-family: Arial, sans-serif;
+  height: 100vh; /* This will set the height for the body */
+  display: flex;
+  flex-direction: column; /* Make the body a flex container */
 }
-
-.container-fluid {
-    padding: 0; /* Remove padding here */
-    background-color: white;
-    flex: 1; /* Allow it to grow and fill available space */
-    display: flex; /* Make it a flex container */
-    flex-direction: column; /* Stack children vertically */
-}
-
 .header-row {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: white;
-    padding: 10px;
-    border-bottom: 2px solid #20c997;
-    position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  padding: 10px;
+  border-bottom: 2px solid #20c997;
+  position: relative;
 }
-
 .header-row a {
-    position: absolute;
-    left: 20px;
+  position: absolute;
+  left: 20px;
 }
-
 .header-row h5 {
-    margin: 0;
-    font-size: 1.25rem;
+  margin: 0;
+  font-size: 1.25rem;
 }
-
 .content {
-  background: linear-gradient(to bottom, #0FD5B1, #4BD0FA);
-    flex: 1; /* Allow the content to grow and fill available space */
-    padding: 20px; /* Padding remains to give some space around the content */
-    overflow-y: auto; /* Enables scrolling if content overflows */
+  background: linear-gradient(to bottom, #0fd5b1, #4bd0fa);
+  flex: 1; /* Allow the content to grow and fill available space */
+  padding: 20px; /* Padding remains to give some space around the content */
+  overflow-y: auto; /* Enables scrolling if content overflows */
 }
 .card-deck {
   display: flex;
   justify-content: space-between;
   margin-bottom: 20px;
 }
-
 .card {
   background-color: #f8f9fa; /* Faded white */
   border: 1px solid #dee2e6;
@@ -370,17 +399,14 @@ body.login {
   flex: 1;
   margin: 0 10px;
 }
-
 .card-title {
   font-size: 1.25rem;
   margin-bottom: 10px;
 }
-
 .card-body {
   padding: 10px;
   border-radius: 100px;
 }
-
 .card-table {
   background-color: #fff;
   border: 1px solid #dee2e6;
@@ -388,88 +414,457 @@ body.login {
   box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
   padding: 15px;
 }
-
 .card-table .card-header {
   font-weight: bold;
 }
-
-/* Additional styling for the table */
-.table th, .table td {
+.table th,
+.table td {
   text-align: center;
   vertical-align: middle;
-}         
-.card.history-card {
-    border-radius: 10px;
 }
-
-  
-/* Supplies Styling */
-.med_btn, .equip_btn, .search_btn, .citizen_btn, .filter_btn {
-  background: linear-gradient(to bottom, #0FD5B1, #4BD0FA);
-  border-radius: 10px;
-  width: 150px;
-  height: 40px;
-  margin: 0 auto;
-  margin-left: 5px;
-}
-.supply-page,html{
-    height: 100vh;
-    
-}
-
 .search_container {
   position: absolute;
   right: 250px;
   width: 500px;
 }
 
-/* History Styling */
-.history_card-body{
-  border-radius: 10px;
-  width: 100%;
+/* General button styles */
+.card-buttons button {
+  border: none;
+  border-radius: 0.25rem; /* Rounded corners */
+  padding: 0.5rem 1rem; /* Padding inside buttons */
+  font-size: 0.875rem; /* Font size */
+  color: #fff; /* Text color */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s ease; /* Smooth transition for background color */
 }
-body.history .history_card {
-  width: 100%;
-  max-width: 1300px;
-  border-radius: 10px;
-  margin: 0 auto; /* Center the card */
+/* Edit button styles */
+.plus {
+  margin-left: 350px;
+}
+.card-buttons .btn-edit {
+  background-color: #0dcaf0; /* Yellow background */
+  margin-left: 1rem;
+  border: none;
+}
+.card-buttons .btn-edit:hover {
+  background-color: #0dcaf0; /* Darker yellow on hover */
+}
+/* Index Styling */
+body.index {
+  background: linear-gradient(to bottom, #0fd5b1, #4bd0fa);
+  margin: 0; /* Remove default margin */
+  height: 100vh; /* Full height */
+  display: flex; /* Center items */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  text-align: center; /* Center text inside buttons */
+  flex-direction: column; /* Keep image above buttons */
+}
+.index_buttons {
+  margin-top: 20px;
+  display: flex; /* Use flex to align buttons side by side */
+  justify-content: center; /* Center buttons horizontally */
+}
+.index_btn {
+  display: inline-block;
+  margin: 10px; /* Adjust margin as needed */
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.2);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.index_btn:hover {
+  background-color: rgba(0, 0, 0, 0.4);
+}
+.seal {
+  max-width: 100%; /* Responsive image */
+  height: auto; /* Maintain aspect ratio */
 }
 
-.card.his_card{
-  background: linear-gradient(to bottom, #0FD5B1, #4BD0FA);
+/* Register Styling */
+body.register {
+  min-height: 100vh; /* Full viewport height */
+  background: linear-gradient(45deg, #0fd5b1, #4bd0fa);
+  background-attachment: fixed; /* Ensure background stays in place during scroll */
+  background-size: cover; /* Ensure background covers the entire page */
 }
-.table.table-bordered{
+
+/* Login Styling */
+body.login {
+  background: linear-gradient(to bottom, #0fd5b1, #4bd0fa);
+  height: 100vh;
+}
+.login_btn,
+.register_btn {
+  background: linear-gradient(to bottom, #0fd5b1, #4bd0fa);
+  border-radius: 10px;
+  width: 150px;
+  height: 40px;
+  margin: 0 auto;
+}
+
+/*Side Navigation Styling */
+.sb-sidenav .nav-link,
+.btn_logout {
+  display: block;
+  padding: 10px;
+  color: black;
+  text-decoration: none;
+  border-radius: 5px;
+  overflow: hidden;
+  transition: padding 0.3s ease, background-color 0.3s ease;
+}
+/* Shadow on hover */
+.sb-sidenav .nav-link:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding-left: 15px;
+}
+.sb-sidenav {
+  text-decoration: none;
+  color: black;
+}
+.nav-link {
+  text-decoration: none;
+  color: black;
+}
+
+/* Dashboard Styling */
+.dash_card {
+  background: linear-gradient(to bottom, #0fd5b1, #4bd0fa);
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 200px;
+  z-index: 1000;
+  overflow-y: auto; /* Allow scrolling if content exceeds height */
+}
+.dash_btn {
+  font-size: 0.875rem;
+  padding: 0.5rem 1rem;
   background: white;
   border-radius: 10px;
-  box-shadow: 0px;
+  text-decoration: none;
+  color: inherit;
+  width: 200px;
+  margin-left: 50px;
+}
+.card.services-card {
+  background: linear-gradient(180deg, #0dcaf0 0%, #20c997 100%);
+  color: black; /* Ensure text is readable */
+  width: 1000px;
+}
+.card.summary-card {
+  color: black; /* Ensure text is readable */
+}
+.card.history-card {
+  background-color: #fff;
+  color: black; /* Ensure text is readable */
+}
+.card.summary-card {
+  background-color: #fff;
+}
+.custom-icon-size {
+  font-size: 150px;
+  color: #fff;
+}
+#servicesContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem; /* Adjust the spacing between cards */
+  justify-content: center; /* Center the cards horizontally */
+}
+.card.history-card {
+  border-radius: 10px;
+}
+#history-date {
+  text-align: center;
+}
+/* Fixed header for timestamp and search bar */
+.sticky-header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #fff;
+  padding: 10px 0; /* Optional: adjust padding */
+  z-index: 1000; /* Ensure it stays on top */
+}
+/* Class to hide the side navigation */
+.side-nav-hidden {
+  transform: translateX(
+    -100%
+  ); /* Move the side nav completely off the screen */
+  transition: transform 0.3s ease-in-out; /* Smooth transition */
+}
+.timestamp {
+  font-size: 16px;
+  width: 100%;
+}
+
+/* Services Styling */
+.service-table th,
+.service-table td {
+  font-size: 0.9rem;
+}
+.service-availed {
+  margin-left: 20px;
+}
+.service-availed h5 {
+  margin: 0;
+  padding-bottom: 10px;
+}
+.transaction-controls {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.date {
+  background: #0fd5b1;
+  border-radius: 10px;
+}
+/* Container for the service cards */
+#serviceCards {
+  flex: 1 1 calc(33.333% - 1rem);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px; /* Increased spacing between the cards */
+}
+
+/* Style for each service card */
+.service-card {
+  width: 100%;
+  max-width: 400px; /* Increased the maximum width of the card */
+  margin-bottom: 20px;
+  border-radius: 20px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out; /* Smooth hover effect */
+  overflow: hidden; /* Ensures the chart stays inside the card */
+}
+
+/* Card body styling */
+.service-card .card-body {
+  padding: 20px;
+  background-color: #fff; /* White background for the card */
+  border-radius: 8px;
+  text-align: left;
+}
+
+/* Card title */
+.service-card .card-title {
+  font-size: 1.5rem; /* Larger title size */
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 15px;
+  font-size: medium;
+}
+
+/* Card description */
+.service-card p {
+  font-size: 3rem;
+  color: #555;
+  line-height: 1.5;
+  margin-bottom: 20px; /* Added margin below description */
+}
+
+/* Supplies Styling */
+.med_btn,
+.equip_btn,
+.search_btn,
+.citizen_btn,
+.filter_btn {
+  background: linear-gradient(to bottom, #0fd5b1, #4bd0fa);
+  border-radius: 10px;
+  width: 150px;
+  height: 40px;
+  margin: 0 auto;
+}
+.medi_btn,
+.equipi_btn,
+.admin_btn {
+  background: linear-gradient(to bottom, #0fd5b1, #4bd0fa);
+  border-radius: 10px;
+  width: 150px;
+  height: 40px;
+  margin: 0 auto;
+  margin-left: 170px;
+}
+.supply-page,
+html {
+  height: 100vh;
+  width: 100%;
+}
+.supply_card-body {
+  margin-left: 200px;
+  width: 90%;
+  width: 100%;
+}
+.sup_table {
+  margin-left: 200px;
+  padding-left: 200px;
+  width: 95%;
+}
+main.container-fluid {
+  padding: 0 !important;
+  margin: 0 !important;
+  width: 100% !important;
+}
+#equipment_table {
+  max-width: 1300px;
+  overflow-x: hidden;
+  width: 90%;
+}
+#medicine_table {
+  max-width: 1300px;
+  overflow-x: hidden;
+  width: 90%;
+}
+
+/* Notification */
+#successNotification,
+#errorNotification {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 9999;
+  background-color: #4caf50; /* Green for success */
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  display: none; /* Hide initially */
+}
+
+#errorNotification {
+  background-color: #f44336; /* Red for error */
+}
+
+.show {
+  opacity: 1;
+  display: block;
+}
+
+/* History Styling */
+.visit {
+  justify-content: center;
+}
+body.history {
+  display: flex;
+  justify-content: center; /* Center content horizontally */
+  align-items: flex-start; /* Align content to the top */
+  margin: 0; /* Remove default body margin */
+  padding: 0; /* Remove any padding */
+}
+
+.card.his_card {
+  background: linear-gradient(to bottom, #0fd5b1, #4bd0fa);
+  margin: 0; /* Remove left margin */
+  margin-bottom: 50px;
+  height: 100%;
+}
+
+.table.table-bordered {
+  background: white;
+  border-radius: 20px;
   border-collapse: collapse;
+  width: 1000px;
+  margin-top: 0;
+}
+.his_card {
+  width: 80%; /* Customize width to avoid clashing with sidenav */
+  max-width: 1200px; /* Optional: Set a max width */
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Card shadow for better visuals */
+}
+
+.table-responsive {
+  overflow-x: auto;
+}
+
+.history_table {
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.his_tab_head th {
+  background-color: #f8f9fa;
+  font-weight: bold;
+}
+
+.monthly .btn {
+  background-color: #e9ecef;
+  color: #000;
+}
+
+.d-flex.justify-content-center {
+  padding: 1rem;
+}
+
+#monthDropdown {
+  background: white !important;
+  justify-content: end;
+  margin-left: 680px;
+}
+
+/* Additional Responsive Design */
+@media (max-width: 768px) {
+  .history_card {
+    margin: 0 15px; /* Add margin on smaller screens */
+  }
+}
+.search-container {
+  width: 700px;
+  justify-content: end;
+  margin-left: 300px;
+}
+.sticky-part {
+  display: flex;
+  position: sticky;
+  top: 0;
+  z-index: 1030;
+  background-color: #f8f9fa; /* Matches typical navbar background */
+  width: calc(100% - 25px); /* Adjust based on the side navigation's width */
+  margin-left: 50px; /* Ensures it starts after the side navigation */
 }
 
 /* Admin Styling */
 .admin_card {
-    background: linear-gradient(to bottom, #0FD5B1, #4BD0FA);
-    width: 205px;
-    height: 100vh;
+  background: linear-gradient(to bottom, #0fd5b1, #4bd0fa);
+  width: 205px;
+  height: 100vh;
 }
-
 body.admin {
   height: 100vh;
   overflow: hidden; /* If necessary to prevent scrolling */
 }
-
-.container-fluid {
-  height: 100%; /* Adjust for your container element */
+.action-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+.action-buttons button {
+  margin-right: 5px; /* Optional: space between buttons */
+  flex: 1;
+}
+.action-buttons button:last-child {
+  margin-right: 0; /* Remove margin from the last button */
 }
 
 /* Profiling Styling */
-.profiling_content {
-  background: linear-gradient(to bottom, #0FD5B1, #4BD0FA);
+.profile_content {
+  background: linear-gradient(to bottom, #0fd5b1);
   flex: 1; /* Allow the content to grow and fill available space */
   padding: 20px; /* Padding remains to give some space around the content */
   overflow-y: auto; /* Enables scrolling if content overflows */
 }
 .profile_date {
-  background: linear-gradient(to bottom, #0FD5B1, #4BD0FA);
+  background: linear-gradient(to bottom, #0fd5b1, #4bd0fa);
   border-radius: 10px;
   width: 200px;
   height: 40px;
@@ -480,13 +875,11 @@ body.admin {
   justify-content: space-between;
   position: relative;
 }
-
 .profile_date label {
   margin: 0; /* Remove margin to prevent extra spacing */
   padding: 0; /* Add padding for spacing within the label */
   margin-left: 10px;
 }
-
 .profile_date input {
   background: transparent; /* Make input background transparent to match label */
   border: none; /* Remove input border */
@@ -495,19 +888,168 @@ body.admin {
   appearance: none; /* Remove default input styling */
   margin-left: 10px;
 }
+#services_availed {
+  padding: 0;
+  margin: 0;
+  height: 30px;
+  width: 10px;
+}
 
+#services_availed p {
+  margin: 0;
+  padding: 0;
+  line-height: 2.1; /* Adjust line height if needed */
+  text-align: left;
+  margin: 5px 0;
+  width: 250px;
+  text-indent: 10px;
+}
+.no-services {
+  background: #fff;
+  padding: 5px;
+  border-radius: 4px;
+  margin: 5px 0;
+  text-align: left;
+  width: 250px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
 
 /* Citizen Styling */
-.table.citizen-table{
+.table.citizen-table {
   border-radius: 10px;
-  background: linear-gradient(to bottom, #0FD5B1, #4BD0FA);
+  background: whitesmoke;
   margin-left: 10px;
 }
 
-
-/* Demographic Styling */
-
 /* Servies Summary Styling */
-.sum-card{
+.sum-card {
   border-radius: 10px;
+  margin-bottom: 50px;
+}
+body.summary {
+  background: #0fd5b1;
+}
+.totalCitizen {
+  font-size: 0.8rem;
+}
+.card-gender .card-body {
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  justify-content: flex-start; /* Keep title at the top */
+  align-items: center; /* Center the gender text horizontally */
+  height: 100%; /* Ensure it uses the full height of the card */
+  text-align: center; /* Center align text */
+}
+
+.card-gender .gender-group-list {
+  display: flex;
+  flex-direction: column; /* Stack the text */
+  justify-content: center; /* Center vertically within the remaining space */
+  align-items: center; /* Center horizontally */
+  flex-grow: 1; /* Take up available space for proper alignment */
+}
+.card-age .age-group-list {
+  font-size: 1.2rem;
+}
+.card-gender .card-body p {
+  margin: 5px 0; /* Optional: Add some spacing between lines */
+  font-size: 1.2rem; /* Optional: Adjust font size for better visibility */
+}
+
+/* Reports Styling */
+.card-body {
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  justify-content: flex-start; /* Keep title at the top */
+  align-items: center; /* Center the gender text horizontally */
+  height: 100%; /* Ensure it uses the full height of the card */
+  text-align: center; /* Center align text */
+}
+
+.gender-group-list {
+  display: flex;
+  flex-direction: column; /* Stack the text */
+  justify-content: center; /* Center vertically within the remaining space */
+  align-items: center; /* Center horizontally */
+  flex-grow: 1; /* Take up available space for proper alignment */
+}
+
+.card-gender .card-body p {
+  margin: 5px 0; /* Optional: Add some spacing between lines */
+  font-size: 1.2rem; /* Optional: Adjust font size for better visibility */
+}
+.card-age .card-body {
+  display: flex;
+  flex-direction: column; /* Stack the items vertically */
+  justify-content: flex-start; /* Align the items to the top */
+  align-items: flex-start; /* Align the items to the left */
+  height: 100%;
+}
+
+.card-age .card-body .age-group {
+  display: flex;
+  justify-content: space-between; /* Distribute space between items */
+  width: 100%; /* Make sure the row takes full width */
+  margin: 0.5rem 0; /* Add margin between each entry */
+}
+
+.card-age .card-body .age-group span {
+  font-size: 1.2rem; /* Adjust the font size */
+}
+.chart-container {
+  width: 100%;
+  max-width: 300px; /* Set a maximum width for the chart */
+  height: 250px; /* Set a fixed height for the chart */
+  margin: 0 auto; /* Center the chart horizontally */
+}
+
+/* Reports Styling */
+.card-custom .card {
+  /* Adjust card width and padding */
+  width: 400px; /* You can also use percentages or specific pixel values */
+  padding: 10px;
+  font-size: 0.85rem; /* Make text smaller */
+  border-radius: 8px; /* Optional for rounded corners */
+  height: 450px;
+}
+#serviceCards {
+  width: 1000px;
+  height: 450px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 cards per row */
+  gap: 15px; /* Space between the cards */
+}
+
+#agePieChart #myChart {
+  width: 100%;
+  max-height: 400px;
+  width: 100%;
+  height: auto;
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.card-title {
+  font-size: 1.3rem; /* Reduce card title font size */
+  margin-bottom: 5px;
+  justify-content: start;
+}
+
+.total-population {
+  margin-top: 0;
+  font-size: 1rem;
+  color: #333;
+  text-align: center;
+}
+/* Dignostic Styling */
+.view-button,
+.add-button {
+  font-size: 0.875rem;
+  padding: 0.5rem 1rem;
+  background: linear-gradient(to bottom, #0fd5b1, #4bd0fa);
+  border-radius: 5px;
+  color: #000;
+  border-color: #000;
 }

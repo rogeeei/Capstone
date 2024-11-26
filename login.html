@@ -3,7 +3,10 @@
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
     <meta name="description" content="" />
     <meta name="author" content="" />
 
@@ -13,12 +16,31 @@
     <link href="css/styles.css" rel="stylesheet" />
     <link href="css/custom.css" rel="stylesheet" />
     <script crossorigin="anonymous"></script>
+    <script type="module" src="js/auth/login.js"></script>
   </head>
-  <body class="login" style="height: 100vh;">
-    <div id="layoutAuthentication" class="d-flex justify-content-center align-items-center" style="height: 100%;">
+  <body class="login" style="height: 100vh">
+    <div
+      id="successNotification"
+      class="notification success"
+      style="display: none"
+    ></div>
+    <div
+      id="errorNotification"
+      class="notification error"
+      style="display: none"
+    ></div>
+
+    <div
+      id="layoutAuthentication"
+      class="d-flex justify-content-center align-items-center"
+      style="height: 100%"
+    >
       <div id="layoutAuthentication_content" class="w-100">
         <main>
-          <div class="login d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+          <div
+            class="login d-flex justify-content-center align-items-center"
+            style="min-height: 100vh"
+          >
             <div class="row justify-content-center w-100">
               <div class="col-lg-5 col-md-7 col-sm-10">
                 <!-- Login Card -->
@@ -27,9 +49,6 @@
                     <h3 class="text-center font-weight-light my-4">Login</h3>
                   </div>
                   <div class="card-body">
-                    <!-- Notifications -->
-                    <div class="alert alert-success d-none" role="alert"></div>
-                    <div class="alert alert-danger d-none" role="alert"></div>
                     <!-- Login Form -->
                     <form id="form_login">
                       <div class="form-floating mb-3">
@@ -55,8 +74,15 @@
                         <label for="password">Password</label>
                       </div>
                       <div class="form-floating mb-3">
-                        <select class="form-control" id="role" name="role" required>
-                          <option value="" disabled selected>Select Role</option>
+                        <select
+                          class="form-control"
+                          id="role"
+                          name="role"
+                          required
+                        >
+                          <option value="" disabled selected>
+                            Select Role
+                          </option>
                           <option value="admin">Admin</option>
                           <option value="user">User</option>
                         </select>

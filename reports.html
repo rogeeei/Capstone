@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+
+    <title>Healthy Barrio | Reports</title>
+
+    <link rel="icon" type="image/x-icon" href="/assets/img/logo.png" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css"
+      rel="stylesheet"
+    />
+    <link href="css/styles.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/custom.css" />
+    <script
+      src="https://use.fontawesome.com/releases/v6.3.0/js/all.js"
+      crossorigin="anonymous"
+    ></script>
+    <script type="module" src="js/system/reports.js"></script>
+  </head>
+  <body class="summary">
+    <div id="successNotification" class="notification"></div>
+    <div id="errorNotification" class="notification"></div>
+    <div class="container-fluid">
+      <!-- Header Row -->
+      <div class="back">
+        <a href="index.html">
+          <img
+            src="assets/img/back.png"
+            height="30px"
+            width="30px"
+            alt="Back"
+          />
+        </a>
+        <h5>Summary Reports</h5>
+      </div>
+
+      <!-- Demographic Information Section -->
+      <div class="content_demo">
+        <h5 class="defo"><u>Demographic Information</u></h5>
+
+        <!-- Bootstrap Grid for Cards -->
+        <div class="row row-cols-2 row-cols-md-3 g-2 card-custom">
+          <!-- Age Distribution Card -->
+          <div class="col">
+            <div class="card card-age">
+              <div class="card-body text-center">
+                <h5 class="card-title fw-bold">Age Distribution</h5>
+                <div class="age-group-list"></div>
+                <!-- Dynamic content here -->
+              </div>
+            </div>
+          </div>
+
+          <!-- Gender Distribution Card -->
+          <div class="col">
+            <div class="card card-gender">
+              <div class="card-body text-start">
+                <h5 class="card-title fw-bold">Gender Distribution</h5>
+                <div class="gender-group-list"></div>
+                <!-- Dynamic content here -->
+              </div>
+            </div>
+          </div>
+
+          <!-- Population Card -->
+          <div class="col">
+            <div class="card card-population">
+              <div class="card-body">
+                <h5 class="card-title fw-bold text-start ms-2">Population</h5>
+                <canvas id="agePieChart" width="500" height="300"></canvas>
+              </div>
+            </div>
+          </div>
+          <!-- Services Summary Section -->
+          <div class="content_service mt-3 justify-content-between">
+            <h5><u>Services Summary</u></h5>
+            <div class="row" id="serviceCards">
+              <div class="col-md-4">
+                <div class="chart-container">
+                  <!-- Your chart will be here -->
+                  <canvas id="myChart"></canvas>
+                </div>
+              </div>
+              <!-- Additional service cards can go here -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- End of row -->
+
+      <!-- End of content_demo -->
+    </div>
+    <!-- End of container-fluid -->
+
+    <!-- JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

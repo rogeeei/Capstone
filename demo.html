@@ -14,50 +14,61 @@
     <link href="css/styles.css" rel="stylesheet" />
     <link rel="stylesheet" href="css/custom.css">
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
-    <!-- <script type="module" src="js/system/demographic_summary.js" defer></script>
-    <script src="js/utils/scripts.js" defer></script> -->
+    <script type="module" src="js/system/demo.js" defer></script>
 </head>
 <body class="summary">
     <div class="container-fluid">
-        <div class="header-row">
-            <a href="dashboard.html">
-                <img src="assets/img/back.png" height="30px" width="30px" alt="Back">
-            </a>
-            <h5 class="text-center mt-0">Barangay</h5>
-        </div>
-        <div class="content demo">
-            <h5><u>Demographic Information</u></h5>
-
-            <!-- Bootstrap Grid for Cards -->
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="card card-age">
-                        <div class="card-body text-start">
-                            <h5 class="card-title fw-bold">Age</h5>
-                            <!-- Age groups will be dynamically inserted here -->
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card card-gender">
-                        <div class="card-body text-start">
-                            <h5 class="card-title fw-bold">Gender</h5>
-                            <!-- Gender summary will be dynamically inserted here -->
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title fw-bold">Population</h5>
-                            <!-- Add content for Population here -->
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
+    <div>
+        <a href="dashboard.html">
+            <img src="assets/img/back.png" height="30px" width="30px" alt="Back" class="back">
+        </a>
+        <div id="barangay-container">
+            <span class="bold-text"></span> 
+            <span id="barangay-name"></span>  <!-- This will be updated dynamically -->
+          </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <!-- Demographic Information Section -->
+      <div class="content_demo">
+        <h5 class="defo"><u>Demographic Information</u></h5>
+
+        <!-- Bootstrap Grid for Cards -->
+        <div class="row row-cols-2 row-cols-md-3 g-2 card-custom">
+          <!-- Age Distribution Card -->
+          <div class="col">
+            <div class="card card-age">
+              <div class="card-body text-center">
+                <h5 class="card-title fw-bold">Age Distribution</h5>
+                <div class="age-group-list"></div>
+                <!-- Dynamic content here -->
+              </div>
+            </div>
+          </div>
+
+          <!-- Gender Distribution Card -->
+          <div class="col">
+            <div class="card card-gender">
+              <div class="card-body text-start">
+                <h5 class="card-title fw-bold">Gender Distribution</h5>
+                <div class="gender-group-list"></div>
+                <!-- Dynamic content here -->
+              </div>
+            </div>
+          </div>
+
+          <!-- Population Card -->
+          <div class="col">
+            <div class="card card-population">
+              <div class="card-body">
+                <h5 class="card-title fw-bold text-start ms-2">Population</h5>
+                <canvas id="agePieChart" width="500" height="300"></canvas>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+</div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src=https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
 </body>
 </html>

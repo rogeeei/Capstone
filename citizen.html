@@ -18,6 +18,7 @@
       href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css"
       rel="stylesheet"
     />
+    
     <link href="css/styles.css" rel="stylesheet" />
     <link rel="stylesheet" href="css/custom.css">
     <script
@@ -25,53 +26,64 @@
       crossorigin="anonymous"
     ></script>
 
-    <!-- <script type="module" src="js/system/citizen.js"></script>
-    <script src="js/utils/scripts.js" defer></script> -->
+    <script type="module" src="js/system/citizen.js"></script>
   </head>
   <body>
     <div id="layoutSidenav">
       <!-- Vertical Card with Side Navigation -->
     <div class="dash_card vertical-card side-nav-card ms-0 ps-0">
-        <div class="card-body pr-2">
-          <div id="layoutSidenav_nav pr-2">
-            <nav class="sb-sidenav" id="sidenavAccordion">
-              <div class="fs-5 ps-3 fw-bold">Brgy. Mabini</div>
-              <span id="user_logged"></span>
-              <div class="mt-3 ms-3">
-                <img src="assets/img/user.png" height="100px" width="100px" alt="" />
-                <div class="fw-bold ps-2 pt-2 fs-6 pb-3">ID NUMBER</div>
-                <span id="user_logged"></span>
-              </div>
-              <div class="sb-sidenav-menu">
-                <div class="nav">
-                  <a class="nav-link active" href="dashboard.html">
-                    <div class="sb-nav-link-icon"><i class="fa-solid fa-table-columns"></i></div>
-                    Dashboard
-                  </a>
-                  <div id="nav_admin_pages"></div>
-                  <a class="nav-link" href="citizen.html">
-                    <div class="sb-nav-link-icon"><i class="fa-solid fa-person"></i></div>
-                    Citizens
-                  </a>
-                  <a class="nav-link" href="supplies.html">
-                    <div class="sb-nav-link-icon"><i class="fa-solid fa-suitcase-medical"></i></div>
-                    Supplies
-                  </a>
-                  <a class="nav-link" href="history.html">
-                    <div class="sb-nav-link-icon"><i class="fas fa-history"></i></div>
-                    History
-                  </a>
+      <div class="card-body ">
+        <div id="layoutSidenav_nav">
+          <nav class="sb-sidenav" id="sidenavAccordion">
+            <div id="barangay-container">
+              <span class="bold-text"></span> 
+              <span id="barangay-name"></span>  <!-- This will be updated dynamically -->
+            </div>
+            <div class="mt-3 ms-3">
+              <img src="assets/img/user.png" height="100px" width="100px" alt="" />
+              <div class="fw-bold ps-2 pt-2 fs-6 pb-3" id="user_logged"></div>
+              <span></span>
+            </div>
+            <div class="sb-sidenav-menu">
+              <div class="nav">
+                <a class="nav-link active" href="dashboard.html">
+                  <div class="sb-nav-link-icon"><i class="fa-solid fa-table-columns"></i></div>
+                  Dashboard
+                </a>
+                <div id="nav_admin_pages"></div>
+                <a class="nav-link" href="citizen.html">
+                  <div class="sb-nav-link-icon"><i class="fa-solid fa-person"></i></div>
+                  Citizens
+                </a>
+                <a class="nav-link" href="supplies.html">
+                  <div class="sb-nav-link-icon"><i class="fa-solid fa-suitcase-medical"></i></div>
+                  Supplies
+                </a>
+                <a class="nav-link" href="history.html">
+                  <div class="sb-nav-link-icon"><i class="fas fa-history"></i></div>
+                  History
+                </a>
+                <!-- Logout link -->
+                <div class="nav-item mt-auto">
+                  <button id="btn_logout" class="nav-link" style="background: none; border: none; padding: 0;">
+                      <div class="sb-nav-link-icon ms-2 ps-1">
+                          <i class="fa-solid fa-sign-out-alt"></i>
+                      </div>
+                      Logout
+                  </button>
                 </div>
               </div>
-            </nav>
-          </div>
+            </div>
+          </nav>
         </div>
       </div>
-      <!-- End of Vertical Card with Side Navigation -->
+    </div>
+    
+    <!-- End of Vertical Card with Side Navigation -->
     
     <!-- Notification -->
-    <div id="success-notification" class="notification success"></div>
-    <div id="error-notification" class="notification error"></div>
+    <div id="successNotification" class="notification"></div>
+<div id="errorNotification" class="notification"></div>>
 
     <div id="layoutSidenav_content">
       <main>
@@ -80,384 +92,156 @@
           <div class="row">
             <div class="col-9">
               <!-- Modal -->
-              <div
-              class="modal fade"
-              id="citizen_form_modal"
-              data-bs-backdrop="static"
-              data-bs-keyboard="false"
-              tabindex="-1"
-              aria-labelledby="staticBackdropLabel"
-              aria-hidden="true"
-              bg-info
-            >
-              <div class="modal-dialog modal-lg">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="staticBackdropLabel">
-                      Citizen Details
-                    </h1>
-                    <button
-                      type="button"
-                      class="btn-close"
-                      data-bs-dismiss="modal"
-                      aria-label="Close"
-                    ></button>
-                  </div>
-                  <!-- Form Citizen-->
-                  <form id="form_citizen">
-                    <!-- Modal Body -->
-                    <div class="modal-body">
-                      <!-- Ciizen Id Field -->
-                      <input type="hidden" name="citizen_id" id="citizen_id" />
-                      <!-- First Name Field -->
-                      <div class="row mb-3">
-                        <div class="col-sm-12">
-                          <input
-                            class="form-control"
-                            type="text"
-                            name="firstname"
-                            id="firstname"
-                            placeholder="First Name"
-                          />
-                        </div>
-                      </div>
-                      <!-- Middle Name Field -->
-                      <div class="row mb-3">
-                        <div class="col-sm-12">
-                          <input
-                            class="form-control"
-                            type="text"
-                            name="middle_name"
-                            id="middle_name"
-                            placeholder="Middle Name"
-                          />
-                        </div>
-                      </div>
-                      <!-- Last Name Field -->
-                      <div class="row mb-3">
-                        <div class="col-sm-12">
-                          <input
-                            class="form-control"
-                            type="text"
-                            name="lastname"
-                            id="lastname"
-                            placeholder="Last Name"
-                            required
-                          />
-                        </div>
-                      </div>
-                      <!-- Suffix Field -->
-                      <div class="row mb-3">
-                        <div class="col-sm-12">
-                          <input
-                            class="form-control"
-                            type="text"
-                            name="suffix"
-                            id="suffix"
-                            placeholder="Suffix"
-                          />
-                        </div>
-                      </div>
-                      <!-- Address Field -->
-                      <div class="row mb-3">
-                        <div class="col-sm-12">
-                          <input
-                            class="form-control"
-                            type="text"
-                            name="address"
-                            id="address"
-                            placeholder="Address"
-                            required
-                          />
-                        </div>
-                      </div>
-                      <!-- Birthdate Field -->
-                      <div class="form-floating mb-3">
-                        <input
-                          class="form-control"
-                          id="date_of_birth"
-                          name="date_of_birth"
-                          type="date"
-                          placeholder="Birthdate"
-                          required
-                        />
-                        <label for="date_of_birth">Birthdate</label>
-                      </div>
-                      <!-- Gender Field -->
-                      <div class="row mb-3">
-                          <div class="col-sm-12">
-                           <select
-                              class="form-control"
-                              id="gender"
-                              name="gender"
-                              required
-                            >
-                              <option value="" disabled selected>Select Gender</option>
-                              <option value="male">Male</option>
-                              <option value="female">Female</option>
-                            </select>
-                          </div>
-                        </div>
-                      <!-- Citizen Status Field -->
-                      <div class="row mb-3">
-                        <div class="col-sm-12">
-                          <input
-                            class="form-control"
-                            type="text"
-                            name="citizen_status"
-                            id="citizen_status"
-                            placeholder="Citizen Status"
-                            required
-                          />
-                        </div>
-                      </div>
-                      <!-- Blood Typde Field -->
-                      <div class="row mb-3">
-                        <div class="col-sm-12">
-                          <input
-                            class="form-control"
-                            type="text"
-                            name="blood_type"
-                            id="blood_type"
-                            placeholder="Blood Type"
-                          />
-                        </div>
-                      </div>
-                      <!-- Height Field -->
-                      <div class="row mb-3">
-                        <div class="col-sm-12">
-                          <input
-                            class="form-control"
-                            type="text"
-                            name="height"
-                            id="height"
-                            placeholder="Height"
-                            required
-                          />
-                        </div>
-                      </div>
-                      <!-- Weight Field -->
-                      <div class="row mb-3">
-                        <div class="col-sm-12">
-                          <input
-                            class="form-control"
-                            type="text"
-                            name="weight"
-                            id="weight"
-                            placeholder="Weight"
-                            required
-                          />
-                        </div>
-                      </div>
-                      <!-- Allergies Field -->
-                      <div class="row mb-3">
-                        <div class="col-sm-12">
-                          <input
-                            class="form-control"
-                            type="text"
-                            name="allergies"
-                            id="allergies"
-                            placeholder="Allergies"
-                          />
-                        </div>
-                      </div>
-                      <!-- Condition Field -->
-                      <div class="row mb-3">
-                        <div class="col-sm-12">
-                          <input
-                            class="form-control"
-                            type="text"
-                            name="condition"
-                            id="condition"
-                            placeholder="Condition"
-                            required
-                          />
-                        </div>
-                      </div>
-                      <!-- Medication Field -->
-                      <div class="row mb-3">
-                        <div class="col-sm-12">
-                          <input
-                            class="form-control"
-                            type="text"
-                            name="medication"
-                            id="medication"
-                            placeholder="Medication"
-                          />
-                        </div>
-                      </div>
-                      <!-- Emergency Contact Name Field -->
-                      <div class="row mb-3">
-                        <div class="col-sm-12">
-                          <input
-                            class="form-control"
-                            type="text"
-                            name="emergency_contact name"
-                            id="emergency_contact_name"
-                            placeholder="Emergency Contact Name"
-                            required
-                          />
-                        </div>
-                      </div>
-                      <!-- Emergency Contact Number Field -->
-                      <div class="row mb-3">
-                        <div class="col-sm-12">
-                          <input
-                            class="form-control"
-                            type="text"
-                            name="emergency_contact_no"
-                            id="emergency_contact_no"
-                            placeholder="Emergency Contact Number"
-                            required
-                          />
-                        </div>
-                      </div>
-                       <!-- Service Availed Field -->
-                       <div class="row mb-3">
-                        <div class="col-sm-12">
-                          <input
-                            class="form-control"
-                            type="text"
-                            name="services_availed"
-                            id="services_availed"
-                            placeholder="Service Availed"
-                            required
-                          />
-                        </div>
-                      </div>
-                    </div>
-                    <!-- Modal Footer -->
-                    <div class="modal-footer">
-                      <button
-                        id="modal_close"
-                        type="button"
-                        class="btn btn-secondary"
-                        data-bs-dismiss="modal"
-                      >
-                        Close
-                      </button>
-                      <button
-                        class="btn btn-primary w-25 d-flex align-items-center justify-content-center"
-                        type="submit"
-                      >
-                        Add Citizen
-                      </button>
-                    </div>
-                  </form>
-                  <!-- End Slides Form -->
-                </div>
+              <div class="modal fade" id="citizen_form_modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">Citizen Details</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <!-- Form Citizen -->
+      <form id="form_citizen">
+        <!-- Modal Body -->
+        <div class="modal-body">
+          <!-- Hidden Citizen Id Field -->
+          <input type="hidden" name="citizen_id" id="citizen_id" />
+
+          <!-- First Name and Middle Name Fields in Two Columns -->
+          <div class="row mb-3">
+            <div class="col-sm-6">
+              <input class="form-control" type="text" name="firstname" id="firstname" placeholder="First Name" />
+            </div>
+            <div class="col-sm-6">
+              <input class="form-control" type="text" name="middle_name" id="middle_name" placeholder="Middle Name" />
+            </div>
+          </div>
+
+          <!-- Last Name and Suffix Fields in Two Columns -->
+          <div class="row mb-3">
+            <div class="col-sm-6">
+              <input class="form-control" type="text" name="lastname" id="lastname" placeholder="Last Name" required />
+            </div>
+            <div class="col-sm-6">
+              <input class="form-control" type="text" name="suffix" id="suffix" placeholder="Suffix" />
+            </div>
+          </div>
+
+          <!-- Address and Birthdate Fields in Two Columns -->
+          <div class="row mb-3">
+            <div class="col-sm-6">
+              <input class="form-control" type="text" name="address" id="address" placeholder="Address" required />
+            </div>
+            <div class="col-sm-6">
+              <div class="form-floating">
+                <input class="form-control" id="date_of_birth" name="date_of_birth" type="date" placeholder="Birthdate" required />
+                <label for="date_of_birth">Birthdate</label>
               </div>
             </div>
+          </div>
+
+          <!-- Gender and Citizen Status Fields in Two Columns -->
+          <div class="row mb-3">
+            <div class="col-sm-6">
+              <select class="form-control" id="gender" name="gender" required>
+                <option value="" disabled selected>Select Gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+              </select>
+            </div>
+            <div class="col-sm-6">
+              <input class="form-control" type="text" name="citizen_status" id="citizen_status" placeholder="Citizen Status" required />
+            </div>
+          </div>
+
+          <!-- Blood Type and Height Fields in Two Columns -->
+          <div class="row mb-3">
+            <div class="col-sm-6">
+              <input class="form-control" type="text" name="blood_type" id="blood_type" placeholder="Blood Type" />
+            </div>
+            <div class="col-sm-6">
+              <input class="form-control" type="text" name="height" id="height" placeholder="Height" required />
+            </div>
+          </div>
+
+          <!-- Weight and Allergies Fields in Two Columns -->
+          <div class="row mb-3">
+            <div class="col-sm-6">
+              <input class="form-control" type="text" name="weight" id="weight" placeholder="Weight" required />
+            </div>
+            <div class="col-sm-6">
+              <input class="form-control" type="text" name="allergies" id="allergies" placeholder="Allergies" />
+            </div>
+          </div>
+
+          <!-- Condition and Medication Fields in Two Columns -->
+          <div class="row mb-3">
+            <div class="col-sm-6">
+              <input class="form-control" type="text" name="condition" id="condition" placeholder="Condition" required />
+            </div>
+            <div class="col-sm-6">
+              <input class="form-control" type="text" name="medication" id="medication" placeholder="Medication" />
+            </div>
+          </div>
+
+          <!-- Emergency Contact Name and Number Fields in Two Columns -->
+          <div class="row mb-3">
+            <div class="col-sm-6">
+              <input class="form-control" type="text" name="emergency_contact_name" id="emergency_contact_name" placeholder="Emergency Contact Name" required />
+            </div>
+            <div class="col-sm-6">
+              <input class="form-control" type="text" name="emergency_contact_no" id="emergency_contact_no" placeholder="Emergency Contact Number" required />
+            </div>
+          </div>
+
+          <!-- Service Availed Field (Single Column for the Button) -->
+          <div class="row mb-3">
+            <div class="col-sm-12">
+              <!-- Button for dropdown -->
+              <button class="serbtn btn-outline-secondary dropdown-toggle" type="button" id="services_availed_button" data-bs-toggle="dropdown" aria-expanded="false">
+                Select Services
+              </button>
+              <ul class="dropdown-menu" id="services_availed_menu">
+                <!-- Dynamic list items for services will be inserted here by JavaScript -->
+              </ul>
+              <!-- Selected services will be displayed here -->
+              <div id="selected_services" class="mt-2"></div>
+            </div>
+          </div>
+        </div>
+        <!-- Modal Footer -->
+        <div class="modal-footer">
+          <button id="modal_close" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button class="btn btn-primary d-flex align-items-center justify-content-center" style="height: 40px;" type="submit">Save</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
             <!-- End Modal -->
 
-            <div class="modal fade" id="citizen_form_modal" tabindex="-1" aria-labelledby="citizenFormModalLabel" aria-hidden="true">
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="citizenFormModalLabel">Edit Citizen</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <div class="modal-body">
-                    <form id="form_citizen">
-                      <input type="hidden" id="citizen_id" name="citizen_id">
-                      <div class="mb-3">
-                        <label for="firstname" class="form-label">First Name</label>
-                        <input type="text" class="form-control" id="firstname" name="firstname" required>
-                      </div>
-                      <div class="mb-3">
-                        <label for="middle_name" class="form-label">Middle Name</label>
-                        <input type="text" class="form-control" id="middle_name" name="middle_name">
-                      </div>
-                      <div class="mb-3">
-                        <label for="lastname" class="form-label">Last Name</label>
-                        <input type="text" class="form-control" id="lastname" name="lastname" required>
-                      </div>
-                      <div class="mb-3">
-                        <label for="suffix" class="form-label">Suffix</label>
-                        <input type="text" class="form-control" id="suffix" name="suffix">
-                      </div>
-                      <div class="mb-3">
-                        <label for="address" class="form-label">Address</label>
-                        <input type="text" class="form-control" id="address" name="address" required>
-                      </div>
-                      <div class="mb-3">
-                        <label for="date_of_birth" class="form-label">Date of Birth</label>
-                        <input type="date" class="form-control" id="date_of_birth" name="date_of_birth" required>
-                      </div>
-                      <div class="mb-3">
-                        <label for="gender" class="form-label">Gender</label>
-                        <select class="form-control" id="gender" name="gender" required>
-                          <option value="Male">Male</option>
-                          <option value="Female">Female</option>
-                          <!-- Add other options as needed -->
-                        </select>
-                      </div>
-                      <div class="mb-3">
-                        <label for="citizen_status" class="form-label">Citizen Status</label>
-                        <input type="text" class="form-control" id="citizen_status" name="citizen_status" required>
-                      </div>
-                      <div class="mb-3">
-                        <label for="blood_type" class="form-label">Blood Type</label>
-                        <input type="text" class="form-control" id="blood_type" name="blood_type">
-                      </div>
-                      <div class="mb-3">
-                        <label for="height" class="form-label">Height</label>
-                        <input type="text" class="form-control" id="height" name="height">
-                      </div>
-                      <div class="mb-3">
-                        <label for="weight" class="form-label">Weight</label>
-                        <input type="text" class="form-control" id="weight" name="weight">
-                      </div>
-                      <div class="mb-3">
-                        <label for="allergies" class="form-label">Allergies</label>
-                        <input type="text" class="form-control" id="allergies" name="allergies">
-                      </div>
-                      <div class="mb-3">
-                        <label for="condition" class="form-label">Condition</label>
-                        <input type="text" class="form-control" id="condition" name="condition">
-                      </div>
-                      <div class="mb-3">
-                        <label for="medication" class="form-label">Medication</label>
-                        <input type="text" class="form-control" id="medication" name="medication">
-                      </div>
-                      <div class="mb-3">
-                        <label for="emergency_contact_name" class="form-label">Emergency Contact Name</label>
-                        <input type="text" class="form-control" id="emergency_contact_name" name="emergency_contact_name">
-                      </div>
-                      <div class="mb-3">
-                        <label for="emergency_contact_no" class="form-label">Emergency Contact Number</label>
-                        <input type="text" class="form-control" id="emergency_contact_no" name="emergency_contact_no">
-                      </div>
-                      <div class="mb-3">
-                        <label for="services_availed" class="form-label">Services Availed</label>
-                        <input type="text" class="form-control" id="services_availed" name="services_availed">
-                      </div>
-                      <button type="submit" class="btn btn-primary">Save</button>
-                    </form>
-                  </div>
-                </div>
-              </div>
-            </div>
             
 
                <!-- Button trigger modal -->
                <button
                id="modal_show"
                type="button"
-               class="citizen_btn btn-info w-15 mt-3"
+               class="citizen_btn btn-info w-15 mt-3 me-5"
                data-bs-toggle="modal"
                data-bs-target="#citizen_form_modal"
              >
-               Add Citizen
+               Add
              </button>             
                       <!-- End Button trigger modal  -->
-              <button class="filter_btn btn-info dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      <div class="fil_btn mt-0 pt-0 ms-2">
+              <button  class="filter_btn btn-info dropdown-toggle  mt-0 pt-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Filter
               </button>
               <ul class="dropdown-menu">
                 <li><a class="dropdown-item" href="#">Ascending</a></li>
                 <li><a class="dropdown-item" href="#">Descending</a></li>
               </ul>
+            </div>
             </div>  
             <div class="search_container justify-content-end mt-3">
               <div class="d-flex align-items-center">
@@ -475,30 +259,13 @@
                   <th scope="col">Age</th>
                   <th scope="col">Purpose</th>
                   <th scope="col">Purok</th>
-                  <th scope="col">View</th>
-                  <th scope="col">Edit</th>
+                  <th scope="col" class="btn_edit">View</th>
+                  <th scope="col" class="btn_edit">Edit</th>
                 </tr>
               </thead>
               <tbody>
                 <!-- Data rows will be added here -->
-                <tr>
-                  <td>01/10/2024 10:30 AM</td>
-                  <td>Doe</td>
-                  <td>John</td>
-                  <td>Male</td>
-                  <td>28</td>
-                  <td>Consultation</td>
-                  <td>Purok 3</td>
-              </tr>
-              <tr>
-                <td>01/10/2024 10:30 AM</td>
-                <td>Doe</td>
-                <td>John</td>
-                <td>Male</td>
-                <td>28</td>
-                <td>Consultation</td>
-                <td>Purok 3</td>
-            </tr>
+                
               </tbody>
             </table>
 

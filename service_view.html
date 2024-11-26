@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+
+    <title>Healthy Barrio | Services View</title>
+
+    <link rel="icon" type="image/x-icon" href="/assets/img/logo.png" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css"
+      rel="stylesheet"
+    />
+    <link href="css/styles.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/custom.css" />
+    <script
+      src="https://use.fontawesome.com/releases/v6.3.0/js/all.js"
+      crossorigin="anonymous"
+    ></script>
+    <script type="module" src="js/system/service_view.js" defer></script>
+  </head>
+
+  <body class="summary">
+    <div class="container-fluid">
+      <div class="header-row">
+        <a href="dashboard.html">
+          <img
+            src="assets/img/back.png"
+            height="30px"
+            width="30px"
+            alt="Back"
+          />
+        </a>
+        <h5 class="text-center mt-0" id="barangay-name">Barangay</h5>
+        <!-- Dynamically updated -->
+      </div>
+
+      <div id="successNotification" class="notification"></div>
+      <div id="errorNotification" class="notification"></div>
+
+      <div class="content_service">
+        <h5><u>Services View</u></h5>
+        <!-- Table for Services Summary -->
+        <!-- Services Summary Section -->
+        <div class="content_service mt-3 justify-content-between">
+          <h5><u>Services Summary</u></h5>
+          <div class="row" id="serviceCards">
+            <div class="col-md-4">
+              <div class="chart-container">
+                <!-- Your chart will be here -->
+                <canvas id="myChart"></canvas>
+              </div>
+            </div>
+            <!-- Additional service cards can go here -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

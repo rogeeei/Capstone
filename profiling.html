@@ -1,98 +1,271 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>Healthy Barrio | Citizen Details</title>
+    <title>Healthy Barrio | Profiling</title>
     <link rel="icon" type="image/x-icon" href="/assets/img/logo.png" />
     <link href="css/styles.css" rel="stylesheet" />
-    <link rel="stylesheet" href="css/custom.css">
-    <script src="js/utils/scripts.js" defer></script>
-    <script type="module" src="js/system/citizen_view.js"></script>
-</head>
-<body class="summary">
+    <link rel="stylesheet" href="css/custom.css" />
+    <script type="module" src="js/system/profiling.js"></script>
+  </head>
+  <body class="summary">
+    <div id="successNotification" class="notification"></div>
+    <div id="errorNotification" class="notification"></div>
+
+    <div class="row">
+      <!-- Notifications -->
+      <div class="alert alert-success d-none" role="alert"></div>
+      <div class="alert alert-danger d-none" role="alert"></div>
+    </div>
+    <div id="notification" class="notification"></div>
+
     <div class="container-fluid">
-        <div class="header-row">
-            <a href="dashboard.html">
-                <img src="assets/img/back.png" height="30px" width="30px" alt="Back">
-            </a>
-            <h5 class="text-center mt-0">Barangay</h5>
+      <div class="header-row">
+        <a href="citizen.html">
+          <img
+            src="assets/img/back.png"
+            height="30px"
+            width="30px"
+            alt="Back"
+          />
+        </a>
+        <h5 class="text-center mt-0" id="barangay-name">Barangay</h5>
+      </div>
+      <div class="profile_content">
+        <h5><u>Profiling</u></h5>
+        <div class="citizen-header">
+          <div class="citizen-details">
+            <div class="detail-row">
+              <span class="label">ID:</span>
+              <span class="value-box" id="citizen_id" name="citizen_id"></span>
+            </div>
+            <div class="detail-row">
+              <span class="label">Name:</span>
+              <span class="value-box" id="lastname" name="lastname"></span>
+            </div>
+            <div class="detail-row">
+              <span class="label">Age:</span>
+              <span class="value-box" id="citizenAge"></span>
+            </div>
+            <div class="detail-row">
+              <span class="label">Gender:</span>
+              <span class="value-box" id="gender" name="gender"></span>
+            </div>
+            <div class="detail-row">
+              <span class="label">Purok:</span>
+              <span class="value-box" id="address" name="address"></span>
+            </div>
+          </div>
+
+          <div class="service-availed">
+            <div>
+              Services Availed:
+              <span
+                id="services_availed"
+                name="services_availed"
+                class="detail-row"
+              >
+                <!-- Add more services here if needed -->
+              </span>
+            </div>
+          </div>
         </div>
-        <div class="profiling_content">
-            <h5><u>Profiling</u></h5>
-            <div class="citizen-header">
-                <img src="assets/img/user.png" width="100px" height="100px" alt="Citizen Photo">
-                <div class="citizen-details">
-                    <div class="detail-row">
-                        <span class="label">ID:</span> 
-                        <span class="value-box" id="citizenId"></span>
-                    </div>
-                    <div class="detail-row">
-                        <span class="label">Name:</span> 
-                        <span class="value-box" id="citizenName"></span>
-                    </div>
-                    <div class="detail-row">
-                        <span class="label">Age:</span> 
-                        <span class="value-box" id="citizenAge"></span>
-                    </div>
-                    <div class="detail-row">
-                        <span class="label">Gender:</span> 
-                        <span class="value-box" id="citizenGender"></span>
-                    </div>
-                    <div class="detail-row">
-                        <span class="label">Purok:</span> 
-                        <span class="value-box" id="citizenPurok"></span>
-                    </div>
-                </div>
-                                          
-                <div class="service-availed">
-                    <h5>Services Availed:</h5>
-                    <p>Service A</p>
-                    <p>Service B</p>
-                    <!-- Add more services here if needed -->
-                </div>
+
+        <!-- Transaction History Table -->
+        <div class="card mt-5" id="transactionHistory">
+          <div class="transaction-controls">
+            <div class="filter" id="filter">
+              <button
+                class="filter_btn btn-info"
+                type="button"
+                data-bs-toggle="modal"
+                data-bs-target="#viewDiagnosticModal"
+              >
+                View Diagnostic
+              </button>
             </div>
 
-            <!-- Transaction History Table -->
-            <div class="card mt-5">
-                <div class="transaction-controls">
-                    <div class="filter">
-                        <button class="filter_btn btn-info dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Filter
-                          </button>
-                          <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Ascending</a></li>
-                            <li><a class="dropdown-item" href="#">Descending</a></li>
-                          </ul>
-                    </div>
-                    <div class="profile_date">
-                        <label for="date">Date:</label>
-                        <input type="date" id="date" class="prof_date me-5">
-                    </div>
-                </div>
-                <div class="card-header mt-0 text-center">
-                    <h5>Transaction History</h5>
-                </div>
-                <div class="card-body">
-                    <table class="table table-striped">
-                        <thead>
-                            <tr>
-                                <th>Date</th>
-                                <th>Transaction</th>
-                                <th>Diagnostic</th>
-                            </tr>
-                        </thead>
-                        <tbody id="transactionHistory">
-                            <!-- Rows will be dynamically inserted here -->
-                        </tbody>
-                    </table>
-                </div>
+            <!-- Dropdown for Month Selection -->
+            <div class="monthly">
+              <button
+                class="btn dropdown-toggle fw-bold"
+                type="button"
+                id="monthDropdown"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Select Month
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="monthDropdown">
+                <li>
+                  <a class="dropdown-item" href="#" data-month="1">January</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#" data-month="2">February</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#" data-month="3">March</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#" data-month="4">April</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#" data-month="5">May</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#" data-month="6">June</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#" data-month="7">July</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#" data-month="8">August</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#" data-month="9">September</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#" data-month="10">October</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#" data-month="11">November</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#" data-month="12">December</a>
+                </li>
+              </ul>
             </div>
+          </div>
+          <div class="card-header mt-0 text-center">
+            <h5>Transaction History</h5>
+          </div>
+          <div class="card-body">
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Transaction</th>
+                  <th>Diagnostic</th>
+                </tr>
+              </thead>
+              <tbody id="transactionHistoryBody">
+                <!-- Rows will be dynamically inserted here -->
+              </tbody>
+            </table>
+          </div>
         </div>
-    </main>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-</body>
+      </div>
+    </div>
+
+    <!-- Add Diagnostic Modal -->
+    <div
+      class="modal fade"
+      id="addDiagnosticModal"
+      tabindex="-1"
+      aria-labelledby="addDiagnosticModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-titles add_diagnosis" id="addDiagnosticModalLabel">
+              Add Diagnosis
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form id="addDiagnosticForm">
+              <!-- Hidden field for citizen ID -->
+              <input type="hidden" id="citizen_id_input" name="citizen_id" />
+
+              <!-- Diagnosis Input -->
+              <div class="mb-3">
+                <label for="diagnosis" class="form-label">Diagnosis</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="diagnosis"
+                  name="diagnosis"
+                  placeholder="Enter diagnosis"
+                  required
+                />
+              </div>
+
+              <!-- Submit Button -->
+              <button type="submit" class="btn btn-primary">
+                Add Diagnosis
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- End of Adding DiagnosticModal -->
+
+    <!-- View Diagnostic Modal -->
+    <div
+      class="modal fade"
+      id="viewDiagnosticModal"
+      tabindex="-1"
+      aria-labelledby="viewDiagnosticModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="viewDiagnosticModalLabel">
+              Diagnostic Details
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th scope="col">Diagnosis</th>
+                  <th scope="col">Date</th>
+                </tr>
+              </thead>
+              <tbody id="diagnosticTableBody">
+                <!-- Diagnostic rows will be inserted here dynamically -->
+              </tbody>
+            </table>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End of View Diagnostic Modal -->
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>
